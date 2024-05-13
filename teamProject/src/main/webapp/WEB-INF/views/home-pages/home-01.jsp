@@ -39,13 +39,16 @@
             <nav role="navigation" class="nav-menu-wrapper v1 w-nav-menu">
               <div class="nav-menu-links-wrapper">
                 <a href="home-01.do" aria-current="page" class="nav-single-link natural-color-100 w-inline-block">
-                            <div>Home</div>
-                          </a>
+              <div>Home</div>
+                </a>
                 <a href="../about-us.do" class="nav-single-link natural-color-100 w-inline-block">
                   <div>About</div>
                 </a>
                 <a href="../blog.do" class="nav-single-link natural-color-100 w-inline-block">
                   <div>Blog</div>
+                </a>
+                <a href="../photoGetBoardList.do" class="nav-single-link natural-color-100 w-inline-block">
+                  <div>사진</div>
                 </a>
                 <div data-hover="true" data-delay="0" class="nav-dropdown pages w-dropdown">
                   <div class="single-nav-link pages-toggle natural-color-100 w-dropdown-toggle">
