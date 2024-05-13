@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="QuestionBoardDAO">
+
+	<insert id="insertQuestionBoard" parameterType="com.javaclass.domain.QuestionBoardVO">
+		INSERT INTO ANSWER ( userEmail, asTitle, asContent, asCreateDate)
+    	VALUES (#{userEmail}, #{asTitle}, #{asContent},now())
+	</insert>
+	
+	<select id="getQuestionBoardList" parameterType="hashmap" resultType="com.javaclass.domain.QuestionBoardVO">
+		SELECT * FROM ANSWER
+		
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+		ORDER BY asId DESC
+	</select>
+	
+	<delete id="deleteQuestionBoard" parameterType="com.javaclass.domain.QuestionBoardVO">
+		DELETE FROM ANSWER
+		WHERE asId = #{asId}
+	
+	</delete>
+	
+	<select id="answerBoard" parameterType="com.javaclass.domain.QuestionBoardVO" resultType="com.javaclass.domain.QuestionBoardVO" >
+		SELECT *
+		FROM ANSWER
+		WHERE asId = #{asId}
+		
+	</select>
+	
+	<update id="updateQuestionBoard" parameterType="com.javaclass.domain.QuestionBoardVO">
+		UPDATE ANSWER SET
+		asAnswer = #{asAnswer}
+		WHERE asId = #{asId }
+	</update>
+	
+</mapper>

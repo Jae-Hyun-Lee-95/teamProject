@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BoardDAO">
+	
+	<insert id="insertBoard" parameterType="com.javaclass.domain.AdminBoardVO">
+   		INSERT INTO ANNOUNCEMENT ( managerNumber, anTitle, anContent, anCreateDate)
+   		VALUES ( #{managerNumber}, #{anTitle}, #{anContent}, now() )
+	</insert>
+	
+	<select id="getBoardList" parameterType="hashmap" resultType="com.javaclass.domain.AdminBoardVO">
+		SELECT * FROM ANNOUNCEMENT
+		
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+		ORDER BY ANNUMBER DESC
+	</select>
+	
+	<delete id="deleteBoard" parameterType="com.javaclass.domain.AdminBoardVO">
+		DELETE FROM ANNOUNCEMENT
+		WHERE anNumber = #{anNumber}
+	
+	</delete>
+	
+	<select id="getBoard" parameterType="com.javaclass.domain.AdminBoardVO" resultType="com.javaclass.domain.AdminBoardVO" >
+		SELECT *
+		FROM ANNOUNCEMENT
+		WHERE anNumber = #{anNumber}
+		
+	</select>
+	
+	<update id="updateBoard" parameterType="com.javaclass.domain.AdminBoardVO">
+		UPDATE ANNOUNCEMENT SET
+		anTitle = #{anTitle},
+		anContent = #{anContent}
+		WHERE anNumber = #{anNumber}
+	</update>
+
+</mapper>

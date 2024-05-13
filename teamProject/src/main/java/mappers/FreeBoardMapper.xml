@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FreeBoardDAO">
+
+	<insert id="insertFreeBoard" parameterType="com.javaclass.domain.FreeBoardVO">
+		INSERT INTO Board ( userEmail, title, content, viewCount, createDate)
+    	VALUES (#{userEmail}, #{title}, #{content},0 ,now())
+	</insert>
+	
+		<select id="getFreeBoardList" parameterType="hashmap" resultType="com.javaclass.domain.FreeBoardVO">
+		SELECT * FROM board
+		
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+		ORDER BY boardId DESC
+	</select>
+	
+	<delete id="deleteFreeBoard" parameterType="com.javaclass.domain.FreeBoardVO">
+		DELETE FROM BOARD
+		WHERE boardId = #{boardId}
+	
+	</delete>
+	
+	<select id="modifyFreeBoard" parameterType="com.javaclass.domain.FreeBoardVO" resultType="com.javaclass.domain.FreeBoardVO" >
+		SELECT *
+		FROM BOARD
+		WHERE boardId = #{boardId}
+		
+	</select>
+	
+	<update id="updateFreeBoard" parameterType="com.javaclass.domain.FreeBoardVO">
+		UPDATE BOARD SET
+		title = #{title},
+		content = #{content}
+		WHERE boardId = #{boardId }
+	</update>
+
+</mapper>
