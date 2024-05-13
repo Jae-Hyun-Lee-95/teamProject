@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', event => {
 			,url : "./replies/new"
 			,success : function(result){
 				alert(result);
-				$("reply").val('');
+				$("#content").val('');
 				replyList();
 			}
 			,error : function(err){
@@ -36,8 +36,6 @@ window.addEventListener('DOMContentLoaded', event => {
 				replyList.empty();
 				for(row of result){
 					var tr = $("<tr/>");
-					var commentId = $('<td/>').text(row["commentId"]);
-					tr.append(commentId);
 					
 					var content = $("<td/>").text(row["content"]);
 					tr.append(content);
