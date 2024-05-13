@@ -11,6 +11,17 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+ #replyList {
+	border: 2px solid #000000;
+	width: 100%; 
+    height: 200px; 
+    margin-top: 20px;
+ }
+
+ #content {
+ 	width: 100%;
+ 	height: 100px;
+ }
  
  .freeContent {
  	margin: 5px 0 0;

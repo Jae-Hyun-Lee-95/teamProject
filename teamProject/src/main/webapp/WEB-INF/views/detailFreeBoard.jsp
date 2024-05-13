@@ -20,6 +20,7 @@
   <link href="/teamProject/resources/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/teamProject/resources/images/webclip.png" rel="apple-touch-icon">
   <link href="./resources/css/styles.css" rel="stylesheet" />
+  
 
 
 </head>
@@ -331,19 +332,30 @@
                                		댓글
                             </div>
                             <div class="card-body">
-                            		<table id="replyList" border="2"/>
-                                <form name="replyFrm" id="replyFrm">
-                                	<input type="hidden" name="" id="" value="" >
-                                	<input type="text" name="reply" id="reply" >
-                                	<div>
-                                		<input type="button" value="댓글추가"  class="boardBtn" id="replyConfirm">
-                                	</div>
-                                </form>
+                            	<form name="replyFrm" id="replyFrm">
+                        			<input type="hidden" name="boardId" id="boardId" value="${detailFreeBoard.boardId }" >
+                            		<input type="hidden" name="userEmail" value="${sessionScope.logEmail}" />
+                            		<input type="text" name="content" id="content" >
+		                            <div class="btnBox">
+		                              <input type="button" value="댓글추가"  class="boardBtn" id="replyConfirm">
+		                            </div>
+                      			 </form>
+                      			 
+                      			 
+                      			 
+                      			 <table id="replyList">
+                      			 	
+	                      			 	
+									
+                      			 </table>	
+                            	
+                                
                             </div>
                         </div>
                     </div>
                 </main>
-             		
+                
+             			
        				
                 
       
@@ -356,5 +368,6 @@
   
   <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
   <script src="./resources/js/datatables-simple-demo.js"></script>
+  <script src="./resources/js/ajax.js" type="text/javascript"></script>
 </body>
 </html>

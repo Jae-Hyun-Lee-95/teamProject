@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="FreeReplyDAO">
+
+	<insert id="insertFreeReply" parameterType="com.javaclass.domain.FreeReplyVO">
+		INSERT INTO BOARDCOMMENT ( boardId, content, createDate, userEmail)
+    	VALUES (#{boardId}, #{content}, now(), #{userEmail})
+	</insert>
+
+	<select id="selectAllReply" parameterType="int" resultType="com.javaclass.domain.FreeReplyVO">
+		SELECT * FROM BOARDCOMMENT WHERE boardId=#{boardId}
+	</select>
+
+</mapper>
