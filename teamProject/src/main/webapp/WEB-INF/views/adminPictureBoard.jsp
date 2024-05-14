@@ -10,10 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title> AdminDashBoard.jsp </title>
+        <title> AdminAnnuouncements.jsp </title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="./resources/css/styles.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+       
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar1 navbar-expand navbar-dark bg-dark">
@@ -51,7 +53,7 @@
                                 회원관리
                             </a>
                             
-                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 공지사항
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -63,7 +65,7 @@
                                 </nav>
                             </div>
                             
-                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 게시판 관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -74,6 +76,7 @@
                                     <a class="nav-link" href="adminPictureBoard">사진게시판</a>
                                 </nav>
                             </div>
+                           
                            
                             <a class="nav-link" href="adminQuestion">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -99,47 +102,13 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                회원관리
+                                사진게시판
                             </div>
                             <div class="card-body">
+                        
                                 <table id="datatablesSimple">
                                     <thead>
-                                        <tr>
-                                            <th>이메일</th>
-                                            <th>비밀번호</th>
-                                            <th>이름</th>
-                                            <th>생년월일</th>
-                                            <th>휴대전화번호</th>
-                                            <th>가입일자</th>
-                                            <th>수정</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>이메일</th>
-                                            <th>비밀번호</th>
-                                            <th>이름</th>
-                                            <th>생년월일</th>
-                                            <th>휴대전화번호</th>
-                                            <th>가입일자</th>
-                                            <th>수정</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                  		<c:forEach items="${userBoardList }" var="userBoard">
-                                       	<tr>
-                                       		<td>${userBoard.userEmail }</td>
-                                       		<td>${userBoard.userPass }</td>
-                                       		<td>${userBoard.userName }</td>
-                                       		<td>${userBoard.userBirth }</td>
-                                       		<td>${userBoard.userTel }</td>
-                                       		<td><fmt:formatDate value="${board.createDate }" pattern="yyyy-MM-dd" /></td>
-                                       		<td align="center"><a href="">수정</a></td>
-                                       		<td align="center"><a href="">삭제</a></td>
-                                       	</tr>
-                                       </c:forEach>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -162,9 +131,6 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="./resources/assets/demo/chart-area-demo.js"></script>
-        <script src="./resources/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/datatables-simple-demo.js"></script>
     </body>

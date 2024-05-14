@@ -61,10 +61,17 @@
                                 </nav>
                             </div>
                             
-                            <a class="nav-link collapsed" href="adminBoard">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 게시판 관리
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="adminBoard">자유게시판</a>
+                                    <a class="nav-link" href="adminPictureBoard">사진게시판</a>
+                                </nav>
+                            </div>
                            
                             <a class="nav-link" href="adminQuestion">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
@@ -102,7 +109,7 @@
                                 		</tr>
                                 		<tr>
                                 			<td>유저 이메일 :</td>
-                                			<td>${sessionScope.logEmail}</td>
+                                			<td>${freeBoard.userEmail}</td>
                                 		</tr>
                                 		<tr>
                                 			<td>게시판 제목</td>
@@ -116,6 +123,56 @@
                                 			<td colspan='2' align='right'><input type='submit' value='수정하기' /></td>
                                 		</tr>
                                 	</table>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <main>
+                    <div class="container-fluid px-4">
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                댓글 관리
+                            </div>
+                            <div class="card-body">
+                                <form action="adminUpdateFreeBoard" method='post'>
+                                	
+                                	
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>제목</th>
+                                            <th>이메일</th>
+                                            <th>등록일</th>
+                                            <th>삭제</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>번호</th>
+                                            <th>제목</th>
+                                            <th>이메일</th>
+                                            <th>등록일</th>
+                                            <th>삭제</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <c:forEach items="${freeBoardList }" var="freeBoard">
+                                       	<tr>
+                                       		<td>${freeBoard.boardId }</td>
+                                       		<td>${freeBoard.title }</td>
+                                       		<td>${freeBoard.userEmail }</td>
+                                       		<td><fmt:formatDate value="${freeBoard.createDate }" pattern="yyyy-MM-dd" /></td>
+                                       		<td align="center"><a href='adminDeleteFreeBoard?boardId=${freeBoard.boardId }'>삭제</a></td>
+                                       	</tr>
+                                       </c:forEach>
+                                    </tbody>
+                                </table>
+                                	
                                 </form>
                                 
                             </div>

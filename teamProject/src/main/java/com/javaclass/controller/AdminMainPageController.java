@@ -11,10 +11,6 @@ public class AdminMainPageController {
 		
 	}
 	
-	@RequestMapping("adminDashBoard")
-	public void dashBoard() {
-		
-	}
 	
 	
 	@RequestMapping("adminWrite")
@@ -27,6 +23,11 @@ public class AdminMainPageController {
 	
 	@RequestMapping("adminChart")
 	public void member() {
+		
+	}
+	
+	@RequestMapping("adminPictureBoard")
+	public void picture() {
 		
 	}
 	

@@ -6,9 +6,21 @@
 
 	<!-- 회원정보 입력 -->
 	<insert id='insertUser' parameterType="com.javaclass.domain.UserVO">
-		INSERT INTO user(Email, Password, Name, Birth, Tel)
-		VALUES(#{userEmail}, #{userPassword}, #{userName}, #{userBirth}, #{userTel})
+		INSERT INTO user(email, password, name, birth, tel, createDate)
+		VALUES(#{userEmail}, #{userPassword}, #{userName}, #{userBirth}, #{userTel}, now())
 	</insert>
+	
+	<select id="getUserBoardList" parameterType="hashmap" resultType="com.javaclass.domain.UserVO">
+		SELECT *
+		FROM user
+		
+		<where>
+			<if test="searchCondition != null">
+				${searchCondition} LIKE '%${searchKeyword}%'
+			</if>
+		</where>
+
+	</select>
 
 	<!-- 로그인 확인 -->
 	<select id='loginCheck' resultType="com.javaclass.domain.UserVO" parameterType="com.javaclass.domain.UserVO">

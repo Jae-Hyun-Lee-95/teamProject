@@ -1,5 +1,8 @@
 package com.javaclass.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +18,11 @@ public class UserServiceImpl implements UserService{
 	public void insertUser(UserVO vo) {
 		//System.out.println("Service : " + vo.toString());
 		userDAOImpl.insertUser(vo);
+	}
+	
+	public List<UserVO> getUserBoardList(HashMap map){
+		//System.out.println(map);
+		return userDAOImpl.getUserBoardList(map);
 	}
 	
 	public UserVO loginCheck(UserVO vo) {

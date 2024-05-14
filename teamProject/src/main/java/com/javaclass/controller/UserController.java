@@ -1,27 +1,41 @@
 package com.javaclass.controller;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javaclass.domain.UserVO;
 import com.javaclass.service.UserService;
 
 @Controller
-@RequestMapping("user-pages")
 public class UserController {
 
 	@Autowired
 	private UserService userServiceImpl;
 	
-	@RequestMapping("/insertUser.do")
+	@RequestMapping("user-pages/insertUser.do")
 	public void insertUser(UserVO vo) {
 		userServiceImpl.insertUser(vo);
 	}
+	
+	@RequestMapping("/adminDashBoard")
+	public void adminUserBoard(Model m, String searchCondition, String searchKeyword) {
+		
+		HashMap map = new HashMap();
+		map.put("searchCondition", searchCondition);
+		map.put("searchKeyword", searchKeyword);
+		
+		List<UserVO> list = userServiceImpl.getUserBoardList(map);
+		m.addAttribute("userBoardList",list);
+	}
 
-	@RequestMapping("/login.do")
+	@RequestMapping("user-pages/login.do")
 	public String login(UserVO vo, HttpSession session) {
 		
 		UserVO result = userServiceImpl.loginCheck(vo);
@@ -34,7 +48,7 @@ public class UserController {
 		}
 	}
 	
-	@RequestMapping("/findPassword.do")
+	@RequestMapping("user-pages/findPassword.do")
 	public String findPassword(UserVO vo, HttpSession session) {
 		userServiceImpl.findPassword(vo);
 		
