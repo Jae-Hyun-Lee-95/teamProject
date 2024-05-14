@@ -310,7 +310,7 @@
                                 		</tr>
                                 		<tr>
                                 			<td>제목</td>
-                                			<td><input type='text' name="title" /></td>
+                                			<td><input type='text' name="title" style="width: 70%;" /></td>
                                 		</tr>
                                 		<tr>
                                 			<td>내용</td>

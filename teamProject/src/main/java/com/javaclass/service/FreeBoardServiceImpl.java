@@ -35,4 +35,10 @@ public class FreeBoardServiceImpl implements FreeBoardService {
 		freeBoardDAO.updateFreeBoard(vo);
 	}
 	
+	@Override
+    public void updateViewCount(Integer boardId) {
+        // boardId에 해당하는 게시물의 조회수를 1 증가시킵니다.
+        freeBoardDAO.updateViewCount(boardId);
+    }
+	
 }

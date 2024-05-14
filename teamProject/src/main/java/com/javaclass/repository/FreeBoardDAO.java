@@ -16,4 +16,6 @@ public interface FreeBoardDAO {
 	public FreeBoardVO modifyFreeBoard(FreeBoardVO vo);
 	
 	public void updateFreeBoard(FreeBoardVO vo);
+	
+	public void updateViewCount(Integer boardId);
 }

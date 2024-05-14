@@ -13,12 +13,12 @@ window.addEventListener('DOMContentLoaded', event => {
 			,data: param
 			,url : "./replies/new"
 			,success : function(result){
-				alert(result);
+				//alert(result);
 				$("#content").val('');
 				replyList();
 			}
 			,error : function(err){
-				alert("error");
+				//alert("error");
 				console.log(err);
 			}
 		})

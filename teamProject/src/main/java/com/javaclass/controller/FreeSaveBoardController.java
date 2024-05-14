@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaclass.domain.FreeBoardVO;
 import com.javaclass.service.FreeBoardService;
@@ -73,11 +74,12 @@ public class FreeSaveBoardController {
 	}
 	
 	@RequestMapping("/detailFreeBoard")
-	public void detailFreeBoard(FreeBoardVO vo, Model m) {
-		
+	public void detailFreeBoard(@RequestParam("boardId") Integer boardId, FreeBoardVO vo, Model m) {
 		
 		FreeBoardVO result = freeBoardService.modifyFreeBoard(vo);
+		freeBoardService.updateViewCount(boardId);
 		m.addAttribute("detailFreeBoard",result);
+		
 	}
 	
 	

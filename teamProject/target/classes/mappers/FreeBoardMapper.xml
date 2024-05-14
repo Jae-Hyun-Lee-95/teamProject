@@ -39,5 +39,11 @@
 		content = #{content}
 		WHERE boardId = #{boardId }
 	</update>
+	
+	<update id="updateViewCount" parameterType="com.javaclass.domain.FreeBoardVO">
+		UPDATE BOARD SET
+		viewCount = viewCount+1
+		WHERE boardId = #{boardId }
+	</update>
 
 </mapper>

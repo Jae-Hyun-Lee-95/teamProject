@@ -35,4 +35,9 @@ public class FreeBoardDAOImpl implements FreeBoardDAO {
 	public void updateFreeBoard(FreeBoardVO vo) {
 		mybatis.update("FreeBoardDAO.updateFreeBoard", vo);
 	}
+	
+	public void updateViewCount(Integer boardId) {
+		mybatis.update("FreeBoardDAO.updateViewCount", boardId);
+	}
+	
 }

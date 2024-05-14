@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.javaclass.domain.AdminLoginVO;
@@ -19,7 +18,7 @@ public class AdminLoginController {
 	
 	
 	
-	@RequestMapping("/login")
+	@RequestMapping("/doLogin")
 	public String login(AdminLoginVO vo, HttpSession session) {
 		AdminLoginVO result = adminLoginServiceImpl.loginCheck(vo);
 		if(result==null) {
@@ -28,7 +27,7 @@ public class AdminLoginController {
 			session.setAttribute("adminLoginId", result.getManagerId());
 			session.setAttribute("adminLoginNumber", result.getManagerNumber());
 			
-			return "adminDashBoard";
+			return "redirect:adminDashBoard";
 		}
 	}
 	

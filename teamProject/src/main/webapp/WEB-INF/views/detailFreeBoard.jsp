@@ -324,11 +324,11 @@
                                 		</tr>
                                 		<tr>
                                 			<td>제목</td>
-                                			<td><input type='text' name="title" value="${detailFreeBoard.title }" /></td>
+                                			<td><input type='text' name="title" value="${detailFreeBoard.title }" style="width: 70%;"/></td>
                                 		</tr>
                                 		<tr>
                                 			<td>내용</td>
-                                			<td><textarea class=freeContent cols='100' rows='15' name="content" >${detailFreeBoard.title }</textarea></td>
+                                			<td><textarea class=freeContent cols='100' rows='15' name="content" >${detailFreeBoard.content }</textarea></td>
                                 		</tr>
                                 		<tr>
                                 			<td colspan='2' align='right'><input type='submit' value='수정하기' /></td>

@@ -109,7 +109,7 @@
                                 		</tr>
                                 		<tr>
                                 			<td>공지사항 제목</td>
-                                			<td><input type='text' name="anTitle" /></td>
+                                			<td><input type='text' name="anTitle" style="width: 70%;"/></td>
                                 		</tr>
                                 		<tr>
                                 			<td>내용</td>

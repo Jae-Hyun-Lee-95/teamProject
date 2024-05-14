@@ -16,4 +16,6 @@ public interface FreeBoardService {
 	FreeBoardVO modifyFreeBoard(FreeBoardVO vo);
 	
 	void updateFreeBoard(FreeBoardVO vo);
+	
+	void updateViewCount(Integer boardId);
 }

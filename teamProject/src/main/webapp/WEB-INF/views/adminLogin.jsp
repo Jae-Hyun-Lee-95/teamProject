@@ -22,7 +22,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">관리자 로그인</h3></div>
                                     <div class="card-body">
-                                        <form name='frm' id='frm' method='post' action='login'>
+                                        <form name='frm' id='frm' method='post' action='doLogin'>
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="managerEmail" type="email"/>
                                                 <label for="inputEmail"> Email </label>
