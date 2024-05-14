@@ -7,7 +7,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.javaclass.domain.FreeBoardVO;
 import com.javaclass.domain.QuestionBoardVO;
 
 @Repository
@@ -35,6 +34,11 @@ public class QuestionBoardDAOImpl implements QuestionBoardDAO {
 	
 	public void updateQuestionBoard(QuestionBoardVO vo) {
 		mybatis.update("QuestionBoardDAO.updateQuestionBoard", vo);
+	}
+	
+	public void questionUpdateBoard(QuestionBoardVO vo) {
+		mybatis.update("QuestionBoardDAO.questionUpdateBoard", vo);
+		
 	}
 
 }

@@ -21,10 +21,7 @@
   <link href="/teamProject/resources/images/webclip.png" rel="apple-touch-icon">
   <link href="./resources/css/styles.css" rel="stylesheet" />
   
-  
-  
-  
-  
+
   
   
 </head>
@@ -301,7 +298,8 @@
                                 1:1 문의남기기 상세보기
                             </div>
                             <div class="card-body">
-                                <form action="questionSaveBoard.do" method='post'>
+                                <form action="questionUpdateBoard" method='post'>
+                               	 <input type="hidden" name="asId" value="${answerBoard.asId}" />
                                 	<table >
                                 		<tr>
                                 			<td>관리자 아이디 :</td>
@@ -309,22 +307,23 @@
                                 		</tr>
                                 		<tr>
                                 			<td>유저 이메일 :</td>
-                                			<td>${sessionScope.logEmail}</td>
+                                			<td>${answerBoard.userEmail}</td>
                                 		</tr>
                                 		<tr>
                                 			<td>제목</td>
-                                			<td><input type='text' name="asTitle" value="${answerBoard.asTitle }" readonly /></td>
+                                			<td><input type='text' name="asTitle" value="${answerBoard.asTitle }" style="width: 70%;" /></td>
                                 		</tr>
                                 		<tr>
                                 			<td>내용</td>
-                                			<td><textarea cols='100' rows='15' name="asContent" readonly>${answerBoard.asContent }</textarea></td>
+                                			<td><textarea cols='100' rows='15' name="asContent" >${answerBoard.asContent }</textarea></td>
                                 		</tr>
                                 		<tr>
                                 			<td>답변 내용</td>
-                                			<td><textarea cols='100' rows='7' name="asAnswer" readonly>${answerBoard.asAnswer }</textarea></td>
+                                			<td><textarea id="asText" cols='100' rows='7' name="asAnswer" readonly>${answerBoard.asAnswer }</textarea></td>
                                 		</tr>
                                 		<tr>
-                                			<td colspan='2' align='right'><a href="questionBoard" class="boardBtn">확인 완료</a></td>
+                                			<td colspan='2' align='right' ><input type='submit' class="modifyBtn" style='margin-right: 10px;' value='수정하기' /></td>
+                                			<td colspan='2' align='right'><a href="questionBoard" class="boardBtn">확인완료</a></td>
                                 		</tr>
                                 	</table>
                                 </form>

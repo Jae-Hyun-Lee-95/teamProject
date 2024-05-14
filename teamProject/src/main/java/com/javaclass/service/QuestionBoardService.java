@@ -3,6 +3,7 @@ package com.javaclass.service;
 import java.util.HashMap;
 import java.util.List;
 
+import com.javaclass.domain.AdminBoardVO;
 import com.javaclass.domain.QuestionBoardVO;
 
 
@@ -17,5 +18,7 @@ public interface QuestionBoardService {
 	QuestionBoardVO answerBoard(QuestionBoardVO vo);
 	
 	void updateQuestionBoard(QuestionBoardVO vo);
+	
+	void questionUpdateBoard(QuestionBoardVO vo);
 
 }

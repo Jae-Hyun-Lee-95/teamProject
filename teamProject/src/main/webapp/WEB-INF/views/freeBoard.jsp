@@ -323,27 +323,27 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-									    <c:forEach items="${freeBoardList}" var="freeBoard">
-									        <tr>
-									            <td>${freeBoard.boardId}</td>
-									            <td>
-									                <c:choose>
-													    <c:when test="${empty sessionScope.user}">
-													        <span style="color: gray;">${freeBoard.title}</span>
-													    </c:when>
-													    <c:otherwise>
-													        <a href="detailFreeBoard?boardId=${freeBoard.boardId}" style="text-decoration: none; color: black;">
-													            <c:out value="${freeBoard.title}" />
-													        </a>
-													    </c:otherwise>
-													</c:choose>
-									            </td>
-									            <td>${freeBoard.userEmail}</td>
-									            <td>${freeBoard.viewCount}</td>
-									            <td><fmt:formatDate value="${freeBoard.createDate}" pattern="yyyy-MM-dd" /></td>
-									        </tr>
-									    </c:forEach>
-								 	</tbody>
+                                        <c:forEach items="${freeBoardList}" var="freeBoard">
+										    <tr>
+										        <td>${freeBoard.boardId}</td>
+										        <td>
+										            <c:choose>
+										                <c:when test="${empty sessionScope.logEmail}">
+										                    <span style="color: gray;">${freeBoard.title}</span>
+										                </c:when>
+										                <c:otherwise>
+										                    <a href="detailFreeBoard?boardId=${freeBoard.boardId}" style="text-decoration: none; color: black;">${freeBoard.title}</a>
+										                </c:otherwise>
+										            </c:choose>
+										        </td>
+										        <td>${freeBoard.userEmail}</td>
+										        <td>${freeBoard.viewCount}</td>
+										        <td><fmt:formatDate value="${freeBoard.createDate}" pattern="yyyy-MM-dd" /></td>
+										    </tr>
+										    
+										</c:forEach>
+                                       
+                                    </tbody>
                                 </table>
                                 		<div class="btnBox">
                                         	<a href="freeBoardWrite.do" class="boardBtn">글쓰기</a>

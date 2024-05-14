@@ -321,14 +321,23 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                       <c:forEach items="${questionBoardList }" var="questionBoard">
-                                       	<tr>
-                                       		<td>${questionBoard.asId }</td>
-                                       		<td><a href="answerBoard?asId=${questionBoard.asId }" style="text-decoration: none; color: black;">${questionBoard.asTitle }</a></td>
-                                       		<td>${questionBoard.userEmail }</td>
-                                       		<td><fmt:formatDate value="${questionBoard.asCreateDate }" pattern="yyyy-MM-dd" /></td>
-                                       	</tr>
-                                       </c:forEach>
+                                       <c:forEach items="${questionBoardList}" var="questionBoard">
+										    <tr>
+										        <td>${questionBoard.asId}</td>
+										        <td>
+										            <c:choose>
+										                <c:when test="${sessionScope.logEmail eq questionBoard.userEmail}">
+										                    <a href="answerBoard?asId=${questionBoard.asId}" style="text-decoration: none; color: black;">${questionBoard.asTitle}</a>
+										                </c:when>
+										                <c:otherwise>
+										                    ${questionBoard.asTitle}
+										                </c:otherwise>
+										            </c:choose>
+										        </td>
+										        <td>${questionBoard.userEmail}</td>
+										        <td><fmt:formatDate value="${questionBoard.asCreateDate}" pattern="yyyy-MM-dd" /></td>
+										    </tr>
+										</c:forEach>
                                     </tbody>
 
                                 </table>

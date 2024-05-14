@@ -17,5 +17,7 @@ public interface QuestionBoardDAO {
 	public QuestionBoardVO answerBoard(QuestionBoardVO vo);
 	
 	public void updateQuestionBoard(QuestionBoardVO vo);
+	
+	public void questionUpdateBoard(QuestionBoardVO vo);
 
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.javaclass.domain.AdminBoardVO;
 import com.javaclass.domain.FreeBoardVO;
 import com.javaclass.domain.QuestionBoardVO;
 import com.javaclass.service.QuestionBoardService;
@@ -25,6 +26,13 @@ public class QuestionBoardController {
 		
 		questionBoardService.insertQuestionBoard(vo);
 		return "redirect:questionBoard.do";
+	}
+	
+	@RequestMapping("/questionUpdateBoard")
+	public String questionUpdateBoard(QuestionBoardVO vo) {
+		questionBoardService.questionUpdateBoard(vo);
+		
+		return "redirect:questionBoard";
 	}
 	
 	@RequestMapping("/questionBoard")

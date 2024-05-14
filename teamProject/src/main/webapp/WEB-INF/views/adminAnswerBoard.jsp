@@ -113,7 +113,7 @@
                                 		</tr>
                                 		<tr>
                                 			<td>제목</td>
-                                			<td><input type='text' name="asTitle" value="${answerBoard.asTitle }" readonly /></td>
+                                			<td><input type='text' name="asTitle" value="${answerBoard.asTitle }" style="width: 70%;" readonly /></td>
                                 		</tr>
                                 		<tr>
                                 			<td>내용</td>

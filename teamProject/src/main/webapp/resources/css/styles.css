@@ -34,7 +34,15 @@
 	margin: 5px 0 0;
 	text-align: right;
 } 
- 
+.modifyBtn {
+	width:150px;
+	display: inline-block;
+	background-color: #222;
+	line-height: 45px;
+	text-align: center;
+	color: #fff;
+	text-decoration: none;
+}
 .boardBtn {
 	width:150px;
 	display: inline-block;
