@@ -65,9 +65,20 @@ public class FreeSaveBoardController {
 		return "redirect:adminBoard";
 	}
 	
+	@RequestMapping("/detailUpdateFreeBoard")
+	public String detailUpdateFreeBoard(FreeBoardVO vo) {
+		freeBoardService.updateFreeBoard(vo);
+		
+		return "redirect:freeBoard";
+	}
+	
 	@RequestMapping("/detailFreeBoard")
 	public void detailFreeBoard(FreeBoardVO vo, Model m) {
+		
+		
 		FreeBoardVO result = freeBoardService.modifyFreeBoard(vo);
 		m.addAttribute("detailFreeBoard",result);
 	}
+	
+	
 }

@@ -131,13 +131,13 @@
                                   		<c:forEach items="${userBoardList }" var="userBoard">
                                        	<tr>
                                        		<td>${userBoard.userEmail }</td>
-                                       		<td>${userBoard.userPass }</td>
+                                       		<td>${userBoard.userPassword }</td>
                                        		<td>${userBoard.userName }</td>
                                        		<td>${userBoard.userBirth }</td>
                                        		<td>${userBoard.userTel }</td>
-                                       		<td><fmt:formatDate value="${board.createDate }" pattern="yyyy-MM-dd" /></td>
-                                       		<td align="center"><a href="">수정</a></td>
-                                       		<td align="center"><a href="">삭제</a></td>
+                                       		<td><fmt:formatDate value="${userBoard.userCreateDate }" pattern="yyyy-MM-dd" /></td>
+                                       		<td align="center"><a href="adminModifyUserBoard?userEmail=${userBoard.userEmail }">수정</a></td>
+                                       		<td align="center"><a href="adminDeleteUserBoard?userEmail=${userBoard.userEmail }">삭제</a></td>
                                        	</tr>
                                        </c:forEach>
                                     </tbody>

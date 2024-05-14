@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="getUserBoardList" parameterType="hashmap" resultType="com.javaclass.domain.UserVO">
-		SELECT *
+		SELECT  Name userName, Password userPassword, Email userEmail, birth userBirth, tel userTel, createDate userCreateDate
 		FROM user
 		
 		<where>
@@ -21,6 +21,28 @@
 		</where>
 
 	</select>
+	
+	<delete id="deleteUserBoard" parameterType="com.javaclass.domain.UserVO">
+		DELETE FROM USER
+		WHERE email = #{userEmail}
+	
+	</delete>
+	
+	<select id="modifyUserBoard" parameterType="com.javaclass.domain.UserVO" resultType="com.javaclass.domain.UserVO" >
+		SELECT Name userName, Password userPassword, Email userEmail, birth userBirth, tel userTel
+		FROM USER
+		WHERE email = #{userEmail}
+		
+	</select>
+	
+	<update id="updateUserBoard" parameterType="com.javaclass.domain.UserVO">
+		UPDATE USER SET
+		Password = #{userPassword},
+		Name = #{userName},
+		Birth = #{userBirth},
+		Tel = #{userTel}
+		WHERE Email = #{userEmail}
+	</update>
 
 	<!-- 로그인 확인 -->
 	<select id='loginCheck' resultType="com.javaclass.domain.UserVO" parameterType="com.javaclass.domain.UserVO">

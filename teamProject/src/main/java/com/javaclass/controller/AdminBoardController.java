@@ -33,7 +33,6 @@ public class AdminBoardController {
 		map.put("searchKeyword", searchKeyword);
 		
 		List<AdminBoardVO> list = boardService.getBoardList(map);
-		System.out.println(list);
 		m.addAttribute("boardList",list);
 	}
 	
@@ -58,6 +57,14 @@ public class AdminBoardController {
 	
 	@RequestMapping("/adminModifyBoard")
 	public void getBoard(AdminBoardVO vo, Model m) {
+		
+		AdminBoardVO result = boardService.getBoard(vo);
+		m.addAttribute("board",result);
+	}
+	
+	@RequestMapping("/detailAnnouncements")
+	public void detailAnnouncements(AdminBoardVO vo, Model m) {
+		
 		AdminBoardVO result = boardService.getBoard(vo);
 		m.addAttribute("board",result);
 	}

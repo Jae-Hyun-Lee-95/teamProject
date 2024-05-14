@@ -11,6 +11,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+ .text-td  > a {
+ 	text-decoration: none;
+ }
+
  #replyList {
 	border: 2px solid #000000;
 	width: 100%; 

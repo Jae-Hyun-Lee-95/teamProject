@@ -1,5 +1,8 @@
+<%@page import="com.javaclass.domain.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title> adminModifyBoard.jsp </title>
+        <title> AdminDashBoard.jsp </title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="./resources/css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -49,7 +52,7 @@
                                 회원관리
                             </a>
                             
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
                                 공지사항
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -92,16 +95,18 @@
             </div>
             <div id="layoutSidenav_content">
                 <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">관리자</h1>
+                
+               
+               
+                   <div class="container-fluid px-4">
+                   		<h2 class="mt-4">관리자</h2>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                자유게시판 수정하기
+                                회원정보수정
                             </div>
                             <div class="card-body">
-                                <form action="adminUpdateFreeBoard" method='post'>
-                                	<input type="hidden" name="boardId" value="${freeBoard.boardId}" />
+                                <form action="adminUpdateUserBoard" method='post'>
                                 	<table >
                                 		<tr>
                                 			<td>관리자 아이디 :</td>
@@ -109,74 +114,29 @@
                                 		</tr>
                                 		<tr>
                                 			<td>유저 이메일 :</td>
-                                			<td>${freeBoard.userEmail}</td>
+                                			<td><input type='text' name="userEmail" value="${userBoard.userEmail}" /></td>
                                 		</tr>
                                 		<tr>
-                                			<td>게시판 제목</td>
-                                			<td><input type='text' name="title" value="${freeBoard.title }" /></td>
+                                			<td>유저 비밀번호</td>
+                                			<td><input type='text' name="userPassword" value="${userBoard.userPassword }" /></td>
                                 		</tr>
                                 		<tr>
-                                			<td>내용</td>
-                                			<td><textarea cols='100' rows='15' name="content">${freeBoard.content }</textarea></td>
+                                			<td>유저 이름</td>
+                                			<td><input type='text' name="userName" value="${userBoard.userName }" /></td>
+                                		</tr>
+                                		<tr>
+                                			<td>유저 생년월일</td>
+                                			<td><input type='text' name="userBirth" value="${userBoard.userBirth }" /></td>
+                                		</tr>
+                                		<tr>
+                                			<td>유저 휴대전화번호</td>
+                                			<td><input type='text' name="userTel" value="${userBoard.userTel }" /></td>
                                 		</tr>
                                 		<tr>
                                 			<td colspan='2' align='right'><input type='submit' value='수정하기' /></td>
                                 		</tr>
                                 	</table>
                                 </form>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                
-                
-                <main>
-                    <div class="container-fluid px-4">
-                        
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                댓글 관리
-                            </div>
-                            <div class="card-body">
-                                <form action="adminUpdateFreeBoard" method='post'>
-                                	
-                                	
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <c:forEach items="${freeBoardList }" var="freeBoard">
-                                       	<tr>
-                                       		<td>${freeBoard.boardId }</td>
-                                       		<td>${freeBoard.title }</td>
-                                       		<td>${freeBoard.userEmail }</td>
-                                       		<td><fmt:formatDate value="${freeBoard.createDate }" pattern="yyyy-MM-dd" /></td>
-                                       		<td align="center"><a href='adminDeleteFreeBoard?boardId=${freeBoard.boardId }'>삭제</a></td>
-                                       	</tr>
-                                       </c:forEach>
-                                    </tbody>
-                                </table>
-                                	
-                                </form>
-                                
                             </div>
                         </div>
                     </div>
@@ -195,13 +155,11 @@
                 </footer>
             </div>
         </div>
-                        
-                        
-                        
-                        
-                        
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="./resources/assets/demo/chart-area-demo.js"></script>
+        <script src="./resources/assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/datatables-simple-demo.js"></script>
     </body>

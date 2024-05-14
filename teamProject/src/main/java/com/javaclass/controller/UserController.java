@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.javaclass.domain.AdminBoardVO;
 import com.javaclass.domain.UserVO;
 import com.javaclass.service.UserService;
 
@@ -33,6 +34,26 @@ public class UserController {
 		
 		List<UserVO> list = userServiceImpl.getUserBoardList(map);
 		m.addAttribute("userBoardList",list);
+	}
+	
+	@RequestMapping("/adminDeleteUserBoard")
+	public String adminDeleteUserBoard(UserVO vo) {
+		//System.out.println("deleteBoard 요청");
+		userServiceImpl.deleteUserBoard(vo);
+		return "redirect:adminDashBoard";
+	}
+	
+	@RequestMapping("/adminModifyUserBoard")
+	public void adminModifyUserBoard(UserVO vo, Model m) {
+		UserVO result = userServiceImpl.modifyUserBoard(vo);
+		m.addAttribute("userBoard",result);
+	}
+	
+	@RequestMapping("/adminUpdateUserBoard")
+	public String adminUpdateUserBoard(UserVO vo) {
+		userServiceImpl.updateUserBoard(vo);
+		System.out.println(vo.toString());
+		return "redirect:adminDashBoard";
 	}
 
 	@RequestMapping("user-pages/login.do")

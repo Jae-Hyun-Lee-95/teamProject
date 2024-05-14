@@ -11,4 +11,7 @@ public interface UserService {
 	public UserVO loginCheck(UserVO vo);
 	public UserVO findPassword(UserVO vo);
 	List<UserVO> getUserBoardList(HashMap map);
+	void deleteUserBoard(UserVO vo);
+	UserVO modifyUserBoard(UserVO vo);
+	void updateUserBoard(UserVO vo);
 }

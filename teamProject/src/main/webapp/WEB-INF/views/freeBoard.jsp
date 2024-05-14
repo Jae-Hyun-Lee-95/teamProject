@@ -326,7 +326,7 @@
                                         <c:forEach items="${freeBoardList }" var="freeBoard">
                                        	<tr>
                                        		<td>${freeBoard.boardId }</td>
-                                       		<td><a href="detailFreeBoard?boardId=${freeBoard.boardId }">${freeBoard.title }</a></td>
+                                       		<td><a href="detailFreeBoard?boardId=${freeBoard.boardId }" style="text-decoration: none; color: black;">${freeBoard.title }</a></td>
                                        		<td>${freeBoard.userEmail }</td>
                                        		<td>${freeBoard.viewCount }</td>
                                        		<td><fmt:formatDate value="${freeBoard.createDate }" pattern="yyyy-MM-dd" /></td>

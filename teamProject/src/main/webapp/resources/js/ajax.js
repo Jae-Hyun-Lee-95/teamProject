@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', event => {
 
+	
+
     
     $("#replyConfirm").click(function(){
 		
@@ -55,5 +57,7 @@ window.addEventListener('DOMContentLoaded', event => {
 			}
 		})
 	}
+	
+	
 
 });

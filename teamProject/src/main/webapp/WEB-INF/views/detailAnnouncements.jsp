@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  --><!--  Last Published: Tue May 07 2024 06:04:56 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6634a93befaafa41dc30c14e" data-wf-site="6634a93aefaafa41dc30c070">
 <head>
@@ -279,14 +277,14 @@
     <section class="section inner-banner">
       <div class="container">
         <div class="inner-banner-wrapper">
-          <h2 class="inner-banner-title">1:1문의</h2>
+          <h2 class="inner-banner-title">공지사항 상세보기</h2>
           <div class="breadcrumb-wrapper">
             <a href="home-pages/home-01.do" class="single-breadcrumb-link w-inline-block">
               <div>Home</div>
             </a>
             <div class="single-breadcrumb-link">/</div>
-            <a href="questionBoard.do" aria-current="page" class="single-breadcrumb-link w-inline-block w--current">
-              <div>questionBoard</div>
+            <a href="blog.do" aria-current="page" class="single-breadcrumb-link w-inline-block w--current">
+              <div>blog</div>
             </a>
           </div>
         </div>
@@ -294,47 +292,33 @@
     </section>
  
     <section class="section faq">
-<main>
-                   <div class="container-fluid px-4">
-                   		
+   		 <main>
+				<div class="container-fluid px-4">
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                1:1문의
+                                공지사항 상세보기
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                       <c:forEach items="${questionBoardList }" var="questionBoard">
-                                       	<tr>
-                                       		<td>${questionBoard.asId }</td>
-                                       		<td><a href="answerBoard?asId=${questionBoard.asId }" style="text-decoration: none; color: black;">${questionBoard.asTitle }</a></td>
-                                       		<td>${questionBoard.userEmail }</td>
-                                       		<td><fmt:formatDate value="${questionBoard.asCreateDate }" pattern="yyyy-MM-dd" /></td>
-                                       	</tr>
-                                       </c:forEach>
-                                    </tbody>
-
-                                </table>
-                                		<div class="btnBox">
-                                        	<a href="questionWrite.do" class="boardBtn">글쓰기</a>
-                                        </div>
+                               
+                                	
+                                	<table >
+                                		<tr>
+                                			<td>관리자 아이디 :</td>
+                                			<td>${sessionScope.adminLoginId}</td>
+                                		</tr>
+                                		<tr>
+                                			<td>공지사항 제목</td>
+                                			<td><input type='text' name="anTitle" style="width: 70%;" value="${board.anTitle }" readonly /></td>
+                                		</tr>
+                                		<tr>
+                                			<td>내용</td>
+                                			<td><textarea cols='100' rows='15' style="margin-top: 3px;"  name="anContent" readonly>${board.anContent }</textarea></td>
+                                		</tr>
+                                		
+                                	</table>
+                                
                             </div>
                         </div>
                     </div>
@@ -342,105 +326,7 @@
       
     </section>
     
-    <div class="section footer">
-      <div class="container">
-        <div class="footer-top">
-          <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443a0" class="footer-details-wrap">
-            <a href="index.do" class="footer-logo-wrap w-inline-block"><img src="/teamProject/resources/images/footer-logo.svg" loading="lazy" alt="" class="footer-logo"></a>
-            <p class="footer-details">Zastock is a place where you could buy some of the photos I have taken over the years.</p>
-            <div class="footer-social-media-wrap">
-              <a href="https://www.facebook.com/" target="_blank" class="footer-social-link w-inline-block">
-                <div class="footer-social-icon"></div>
-              </a>
-              <a href="https://www.linkedin.com/" target="_blank" class="footer-social-link w-inline-block">
-                <div class="footer-social-icon"></div>
-              </a>
-              <a href="https://twitter.com/" target="_blank" class="footer-social-link w-inline-block">
-                <div class="footer-social-icon"></div>
-              </a>
-              <a href="https://www.instagram.com/" target="_blank" class="footer-social-link w-inline-block">
-                <div class="footer-social-icon"></div>
-              </a>
-            </div>
-          </div>
-          <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443b2" class="footer-links-wrapper">
-            <h4 class="footer-links-title">Useful Links</h4>
-            <div class="footer-links-flex-wrap">
-              <div class="single-footer-links-flex-wrap">
-                <a href="home-pages/home-01.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Home 01</div>
-                </a>
-                <a href="home-pages/home-02.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Home 02</div>
-                </a>
-                <a href="about-us.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">About Us</div>
-                </a>
-                <a href="upload-a-collection.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Upload Collections</div>
-                </a>
-                <a href="become-an-author.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Become An Author</div>
-                </a>
-                <a href="blog.do" aria-current="page" class="single-footer-link w-inline-block w--current">
-                  <div class="footer-link-text">Blog</div>
-                </a>
-              </div>
-              <div class="single-footer-links-flex-wrap">
-                <a href="https://zastock.webflow.io/blog/the-benefits-of-stock-photography-marketplaces" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Blog Single</div>
-                </a>
-                <a href="author.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Author</div>
-                </a>
-                <a href="product.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Products</div>
-                </a>
-                <a href="https://zastock.webflow.io/product/franklin-sterling" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Collection Single</div>
-                </a>
-                <a href="https://zastock.webflow.io/author/alex-anderson" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Author Single</div>
-                </a>
-                <a href="contact-us.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Contact Us</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443d9" class="footer-links-wrapper">
-            <h4 class="footer-links-title">Utility Pages</h4>
-            <div class="footer-links-flex-wrap">
-              <div class="single-footer-links-flex-wrap">
-                <a href="utility-pages/style-guide.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Style Guide</div>
-                </a>
-                <a href="401.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Protected Password</div>
-                </a>
-                <a href="404.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">404 Not Found</div>
-                </a>
-                <a href="utility-pages/license.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Licenses</div>
-                </a>
-                <a href="utility-pages/changelog.do" class="single-footer-link w-inline-block">
-                  <div class="footer-link-text">Changelog</div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-bottom">
-          <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443ee" class="footer-copyright-wrap">
-            <div class="footer-copyright">© Copyright - <a href="index.do" class="footer-source-link">Zastock</a> | Designed by <a href="https://www.flowzai.com/" target="_blank" class="footer-source-link">Flowzai </a>/ <a href="utility-pages/license.do" class="footer-source-link">License</a> - Powered by <a href="https://webflow.com/" target="_blank" class="footer-source-link">Webflow</a>
-            </div>
-          </div>
-          <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443fc" class="footer-divider"></div>
-        </div>
-      </div>
     </div>
-  </div>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6634a93aefaafa41dc30c070" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="/teamProject/resources/js/webflow.js" type="text/javascript"></script>
   

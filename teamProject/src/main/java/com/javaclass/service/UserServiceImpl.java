@@ -31,8 +31,20 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public UserVO findPassword(UserVO vo) {
-		System.out.println("Service : " + vo.toString());
+	
 		return userDAOImpl.findPassword(vo);
+	}
+	
+	public void deleteUserBoard(UserVO vo) {
+		userDAOImpl.deleteUserBoard(vo);
+	}
+	
+	public UserVO modifyUserBoard(UserVO vo) {
+		return userDAOImpl.modifyUserBoard(vo);
+	}
+	
+	public void updateUserBoard(UserVO vo) {
+		userDAOImpl.updateUserBoard(vo);
 	}
 	
 }

@@ -20,7 +20,22 @@
   <link href="/teamProject/resources/images/favicon.png" rel="shortcut icon" type="image/x-icon">
   <link href="/teamProject/resources/images/webclip.png" rel="apple-touch-icon">
   <link href="./resources/css/styles.css" rel="stylesheet" />
-  
+  <script>
+    // JavaScript를 사용하여 세션 값과 사용자 이메일 값 비교 후 읽기 전용으로 만들기
+    window.onload = function() {
+        var sessionEmail = "${sessionScope.logEmail}";
+        var userEmail = "${detailFreeBoard.userEmail}";
+
+        if (sessionEmail !== userEmail) {
+            var titleInput = document.getElementsByName("title")[0];
+            var contentTextarea = document.getElementsByName("content")[0];
+            titleInput.setAttribute("readonly", true);
+            contentTextarea.setAttribute("readonly", true);
+            titleInput.classList.add("readonly");
+            contentTextarea.classList.add("readonly");
+        }
+    };
+ </script>
 
 
 </head>
@@ -296,13 +311,16 @@
                                 <i class="fas fa-table me-1"></i>
                                 게시글 상세보기
                             </div>
+                            
+                            
                             <div class="card-body">
-                                <form action="freeSaveBoard.do" method='post'>
-                                	<input type="hidden" name="userEmail" value="${sessionScope.logEmail}" />
+                            
+                                <form action="detailUpdateFreeBoard" method='post'>
+                                	<input type="hidden" name="boardId" value="${detailFreeBoard.boardId}" />
                                 	<table >
                                 		<tr>
                                 			<td>이메일 : </td>
-                                			<td>${sessionScope.logEmail}</td>
+                                			<td>${detailFreeBoard.userEmail}</td>
                                 		</tr>
                                 		<tr>
                                 			<td>제목</td>

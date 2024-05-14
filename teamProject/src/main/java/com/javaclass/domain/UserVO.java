@@ -1,5 +1,7 @@
 package com.javaclass.domain;
 
+import java.util.Date;
+
 public class UserVO {
 	
 	// 멤버변수 선언 (***** 변수명이 중요 )
@@ -8,7 +10,7 @@ public class UserVO {
 	private String userName;
 	private String userBirth;
 	private String userTel;
-	private String userCreateDate;
+	private Date userCreateDate;
 	
 	
 	
@@ -42,13 +44,14 @@ public class UserVO {
 	public void setUserTel(String userTel) {
 		this.userTel = userTel;
 	}
-	public String getUserCreateDate() {
+	
+	
+	public Date getUserCreateDate() {
 		return userCreateDate;
 	}
-	public void setUserCreateDate(String userCreateDate) {
+	public void setUserCreateDate(Date userCreateDate) {
 		this.userCreateDate = userCreateDate;
 	}
-	
 	@Override
 	public String toString() {
 		return "UserVO [userEmail=" + userEmail + ", userPassword=" + userPassword + ", userName=" + userName

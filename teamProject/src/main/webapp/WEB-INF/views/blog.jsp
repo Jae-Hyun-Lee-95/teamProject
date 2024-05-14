@@ -327,7 +327,7 @@
                                     	<c:forEach items="${boardList }" var="board">
                                        	<tr>
                                        		<td>${board.anNumber }</td>
-                                       		<td>${board.anTitle }</td>
+                                       		<td><a href="detailAnnouncements?anNumber=${board.anNumber }" style="text-decoration: none; color: black;">${board.anTitle }</a></td>
                                        		<td><fmt:formatDate value="${board.anCreateDate }" pattern="yyyy-MM-dd" /></td>
                                        	</tr>
                                        </c:forEach>
