@@ -25,6 +25,10 @@ public class PhotoServiceImpl implements PhotoService{
 	public void deletePhoto(PhotoVO vo) {
 		photoDAO.deletePhoto(vo);
 	}
+	
+	public void deletePictureBoard(PhotoVO vo) {
+		photoDAO.deletePictureBoard(vo);
+	}
 
 	public PhotoVO getPhoto(PhotoVO vo) {
 		return photoDAO.getPhoto(vo);

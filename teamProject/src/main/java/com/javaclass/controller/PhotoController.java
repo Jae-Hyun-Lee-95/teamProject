@@ -24,10 +24,17 @@ public class PhotoController {
 		model.addAttribute("photoList", result);
 	}
 	
+	@RequestMapping("adminPictureBoard")
+	public void adminGetPhotoList(PhotoVO vo, Model model) {
+		List<PhotoVO> result = photoService.getPhotoList(vo);
+		
+		model.addAttribute("photoList", result);
+	}
+	
 	// 글 등록
 	@RequestMapping(value = "/photoSaveBoard.do")
 	public String insertPhoto(PhotoVO vo) throws IOException {
-		System.out.println(vo.toString());
+		
 					
 		photoService.insertPhoto(vo);
 		return "redirect:photoGetBoard.do";
@@ -43,6 +50,12 @@ public class PhotoController {
 	public void deletePhoto(PhotoVO vo) {
 	}
 	
+	@RequestMapping("/adminDeletePictureBoard")
+	public String deletePictureBoard(PhotoVO vo) {
+		photoService.deletePictureBoard(vo);
+		return "redirect:adminPictureBoard";
+	}
+	
 	// 글 상세 조회
 	@RequestMapping("/getBoard.do")
 	public void getPhoto(PhotoVO vo, Model model) {
@@ -52,7 +65,7 @@ public class PhotoController {
 	
 	@RequestMapping("home-pages/home-01.do")
 	public void getShowPic(PhotoVO vo, Model model) {
-		System.out.println("photoImageList.do 호출");
+		
 		List<PhotoVO> result = photoService.getShowPic(vo);
 		
 		model.addAttribute("photoList", result);

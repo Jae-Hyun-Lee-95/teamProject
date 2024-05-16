@@ -108,8 +108,43 @@
                         
                                 <table id="datatablesSimple">
                                     <thead>
-                                        
-                                    </tbody>
+										<tr>
+											<th>번호</th>
+											<th>제목</th>
+											<th>이메일</th>
+											<th>등록일</th>
+											<th>파일</th>
+											<th>삭제</th>
+										</tr>
+									</thead>
+									<c:forEach items="${photoList }" var="photo">
+										<!-- 프라퍼티이름 변경 -->
+										<tr>
+										
+										 <td>${photo.picNum }</td>
+											<td>${photo.picTitle }</td>
+											<td>${photo.picEmail }</td>
+											<td>${photo.picDate }</td>
+											
+											<!-- 추가 -->
+											<td>
+												  <c:choose>
+													<c:when test="${ photo.picFsize==0 }">첨부파일없음</c:when>
+													<c:otherwise>
+													<div style="pointer-events: none;">
+														<a href='resources/upload/${photo.picEmail}/${photo.picId}'>
+														<img src="/teamProject/resources/images/disk.gif">${photo.picFname }
+														</a>
+														</div>
+													</c:otherwise>
+												</c:choose>
+											</td>
+											
+											<td align="center"><a href='adminDeletePictureBoard?PicNum=${photo.picNum }'>삭제</a></td>
+											
+											
+										</tr>
+									</c:forEach>
                                 </table>
                             </div>
                         </div>

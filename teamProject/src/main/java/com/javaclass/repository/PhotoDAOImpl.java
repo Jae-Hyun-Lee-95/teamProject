@@ -14,34 +14,37 @@ public class PhotoDAOImpl implements PhotoDAO{
 	private SqlSessionTemplate mybatis;
 	
 	public void insertPhoto(PhotoVO vo) {
-		System.out.println("===> Mybatis insertPhoto() 호출");
-		System.out.println(vo.toString());
+		
 		mybatis.insert("PhotoDAO.insertPhoto", vo);
 	}
 	
 	public void updatePhoto(PhotoVO vo) {
-		System.out.println("===> Mybatis updatePhoto() 호출");
+		
 		mybatis.update("PhotoDAO.updatePhoto", vo);
 	}
 	
 	public void deletePhoto(PhotoVO vo) {
-		System.out.println("===> Mybatis deletePhoto() 호출");
+		
 		mybatis.delete("PhotoDAO.deletePhoto", vo);
 	}
 	
+	public void deletePictureBoard(PhotoVO vo) {
+		
+		mybatis.delete("PhotoDAO.deletePictureBoard", vo);
+	}
+	
 	public PhotoVO getPhoto(PhotoVO vo) {
-		System.out.println("===> Mybatis getPhoto() 호출");
+		
 		return (PhotoVO) mybatis.selectOne("PhotoDAO.getPhoto", vo);
 	}
 	
 	public List<PhotoVO> getPhotoList(PhotoVO vo) {
-		System.out.println("===> Mybatis getPhotoList() 호출");
-		System.out.println(vo.toString());
+		
 		return mybatis.selectList("PhotoDAO.getPhotoList", vo);
 	}
 	
 	public List<PhotoVO> getShowPic(PhotoVO vo) {
-		System.out.println("===> Mybatis getShowPic() 호출");
+		
 		return mybatis.selectList("PhotoDAO.getShowPic", vo);
 	}
 

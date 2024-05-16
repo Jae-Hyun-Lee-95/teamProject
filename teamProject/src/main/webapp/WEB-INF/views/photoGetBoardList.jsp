@@ -313,30 +313,30 @@
 											<th>파일</th>
 										</tr>
 									</thead>
-			<c:forEach items="${photoList }" var="photo">
-				<!-- 프라퍼티이름 변경 -->
-				<tr>
-				
-				 <td>${photo.picNum }</td>
-					<td><a href="photoGetBoard.do?PicNum=${photo.picNum }">
-							${photo.picTitle }</a></td>
-					<td>${photo.picEmail }</td>
-					<td>${photo.picDate }</td>
-					<td>${photo.picCount }</td>
-					<!-- 추가 -->
-					<td>
-						  <c:choose>
-							<c:when test="${ photo.picFsize==0 }">첨부파일없음</c:when>
-							<c:otherwise>
-								<a href='resources/upload/${photo.picEmail}/${photo.picId}'>
-								<img src="/teamProject/resources/images/disk.gif">${photo.picFname }
-								</a>
-							</c:otherwise>
-						</c:choose>
-					</td> 
-					
-				</tr>
-			</c:forEach>
+										<c:forEach items="${photoList }" var="photo">
+											<!-- 프라퍼티이름 변경 -->
+											<tr>
+											
+											 <td>${photo.picNum }</td>
+												<td><a href="photoGetBoard.do?PicNum=${photo.picNum }">
+														${photo.picTitle }</a></td>
+												<td>${photo.picEmail }</td>
+												<td>${photo.picDate }</td>
+												<td>${photo.picCount }</td>
+												<!-- 추가 -->
+												<td>
+													  <c:choose>
+														<c:when test="${ photo.picFsize==0 }">첨부파일없음</c:when>
+														<c:otherwise>
+															<a href='resources/upload/${photo.picEmail}/${photo.picId}'>
+															<img src="/teamProject/resources/images/disk.gif">${photo.picFname }
+															</a>
+														</c:otherwise>
+													</c:choose>
+												</td> 
+												
+											</tr>
+										</c:forEach>
 								</table>
 										<div class="btnBox">
                                         	<a href="photoGetBoard.do" class="boardBtn">글쓰기</a>

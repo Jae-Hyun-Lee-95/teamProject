@@ -26,9 +26,6 @@ public class AdminMainPageController {
 		
 	}
 	
-	@RequestMapping("adminPictureBoard")
-	public void picture() {
-		
-	}
+	
 	
 }

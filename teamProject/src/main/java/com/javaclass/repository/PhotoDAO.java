@@ -10,6 +10,8 @@ public interface PhotoDAO {
 	public void updatePhoto(PhotoVO vo) ;
 
 	public void deletePhoto(PhotoVO vo);
+	
+	public void deletePictureBoard(PhotoVO vo);
 
 	public PhotoVO getPhoto(PhotoVO vo) ;
 

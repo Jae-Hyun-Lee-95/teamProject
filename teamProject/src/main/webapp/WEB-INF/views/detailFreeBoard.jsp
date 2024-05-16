@@ -365,7 +365,8 @@
                       			 	
 	                      			 	
 									
-                      			 </table>	
+                      			 </table>
+                      			 
                             	
                                 
                             </div>

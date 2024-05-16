@@ -5,7 +5,7 @@ window.addEventListener('DOMContentLoaded', event => {
     
     $("#replyConfirm").click(function(){
 		
-		
+		//alert("ok");
 		var param = $("#replyFrm").serialize();
 		
 		$.ajax({
@@ -57,6 +57,46 @@ window.addEventListener('DOMContentLoaded', event => {
 			}
 		})
 	}
+	$("#replyConfirm2").click(function(){
+		
+		alert("ok2");
+		
+	})
+	
+	adminReplyList();
+	function adminReplyList(){
+		$.ajax({
+			type : "get"
+			,url : "./replies"
+			,data: { boardId : $("#boardId").val() }
+			,dataType : "json"
+			,success: function(result){
+				
+				var adminReplyList = $("#adminReplyList");
+				
+				adminReplyList.empty();
+				for(row of result){
+					var tr = $("<tr/>");
+					
+					var content = $("<td/>").text(row["content"]);
+					tr.append(content);
+					
+					var userEmail = $("<td/>").text(row["userEmail"]);
+					tr.append(userEmail);
+					
+					var createDate = $("<td/>").text(row["createDate"]);
+					tr.append(createDate);
+					
+					adminReplyList.append(tr);
+				}
+			}
+			,error : function(err){
+				alert("error");
+				console.log(err);
+			}
+		})
+	}
+	
 	
 	
 

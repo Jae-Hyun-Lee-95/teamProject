@@ -42,6 +42,11 @@
 		<!-- WHERE b_id = #{b_id} -->
 </select>
 
+	<delete id="deletePictureBoard" parameterType="PhotoVO">
+		DELETE FROM picture
+		WHERE PicNum = #{PicNum}
+	
+	</delete>
 
 	
 

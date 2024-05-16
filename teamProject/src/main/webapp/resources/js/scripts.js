@@ -23,8 +23,6 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     }
     
-    $("#replyConfirm").click(function(){
-		alert("ok");
-	})
+    
 
 });

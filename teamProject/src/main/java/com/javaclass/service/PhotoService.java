@@ -13,6 +13,8 @@ public interface PhotoService {
 
 		// 글 삭제
 		void deletePhoto(PhotoVO vo);
+		
+		void deletePictureBoard(PhotoVO vo);
 
 		// 글 상세 조회
 		PhotoVO getPhoto(PhotoVO vo);

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,8 +11,12 @@
         <meta name="author" content="" />
         <title> adminModifyBoard.jsp </title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="./resources/css/styles.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  		
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="./resources/css/styles.css" rel="stylesheet" />
+        
+        
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar1 navbar-expand navbar-dark bg-dark">
@@ -125,62 +130,45 @@
                                 	</table>
                                 </form>
                                 
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                
-                
-                <main>
-                    <div class="container-fluid px-4">
-                        
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                댓글 관리
-                            </div>
-                            <div class="card-body">
-                                <form action="adminUpdateFreeBoard" method='post'>
-                                	
-                                	
-                                <table id="datatablesSimple">
-                                    <thead>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>제목</th>
-                                            <th>이메일</th>
-                                            <th>등록일</th>
-                                            <th>삭제</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <c:forEach items="${freeBoardList }" var="freeBoard">
-                                       	<tr>
-                                       		<td>${freeBoard.boardId }</td>
-                                       		<td>${freeBoard.title }</td>
-                                       		<td>${freeBoard.userEmail }</td>
-                                       		<td><fmt:formatDate value="${freeBoard.createDate }" pattern="yyyy-MM-dd" /></td>
-                                       		<td align="center"><a href='adminDeleteFreeBoard?boardId=${freeBoard.boardId }'>삭제</a></td>
-                                       	</tr>
-                                       </c:forEach>
-                                    </tbody>
-                                </table>
-                                	
-                                </form>
+                                
                                 
                             </div>
                         </div>
                     </div>
                 </main>
+                <main>
+				<div class="container-fluid px-4">
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                               		댓글
+                            </div>
+                            <div class="card-body">
+                            	<form name="replyFrm" id="replyFrm">
+                        			<input type="hidden" name="boardId" id="boardId" value="${detailFreeBoard.boardId }" >
+                            		<input type="hidden" name="userEmail" value="${sessionScope.logEmail}" />
+                            		<input type="text" name="content" id="content" >
+		                            <div class="btnBox">
+		                              <input type="button" value="댓글추가"  class="boardBtn" id="replyConfirm2">
+		                            </div>
+                      			 </form>
+                      			 
+                      			
+                      			 
+                      			 <table id="adminReplyList">
+                      			 	
+	                      			 	
+									
+                      			 </table>	
+                            	
+                                
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                	
+                
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -199,10 +187,12 @@
                         
                         
                         
-                        
+        <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6634a93aefaafa41dc30c070" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  		<script src="/teamProject/resources/js/webflow.js" type="text/javascript"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/scripts.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="./resources/js/datatables-simple-demo.js"></script>
+        <script src="./resources/js/ajax.js" type="text/javascript"></script>
     </body>
 </html>
