@@ -31,6 +31,7 @@
 	  <property name="typeAliases">
 			<list>
 				<value>com.javaclass.domain.UserVO</value> <!-- UserVO -->
+				<value>com.javaclass.domain.PhotoVO</value> <!-- PhotoVO -->
 			</list>
 	   </property> 
 	</bean>
@@ -39,4 +40,9 @@
 	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 	   <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	 </bean>
+	 
+	 
+	 <bean id="multipartResolver"  
+			class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
 </beans>

@@ -299,36 +299,36 @@
                             </div>
 							<div class="card-body">
 								<form action="updateBoard.do" method="post">
-                                <input name="b_id" type="hidden" value="${board.b_id}" />
+                                <input name="PicNum" type="hidden" value="${photo.PicNum}" />
                                 <table id="datatablesSimple">
                                 <thead>
 						            <tr>
 						               <td>제목</td>
-						               <td><input name="b_title" type="text"
-						                  value="${board.b_title }" /></td>
+						               <td><input name="PicTitle" type="text"
+						                  value="${photo.PicTitle }" /></td>
 						            </tr>
 						            <tr>
 						               <td>작성자</td>
-						               <td>${board.b_name }</td>
+						               <td>${photo.PicName }</td>
 						            </tr>
 						            <tr>
 						               <td>내용</td>
-						               <td><textarea name="b_content">${board.b_content }</textarea></td>
+						               <td><textarea name="PicContent">${photo.PicContent }</textarea></td>
 						            </tr>
 						            <tr>
 						               <td>등록일</td>
-						               <td>${board.b_date }</td>
+						               <td>${photo.PicDate }</td>
 						            </tr>
 						            <tr>
 						               <td>조회수</td>
-						               <td>${board.b_count }</td>
+						               <td>${photo.PicCount }</td>
 						            </tr>
 						            <!-- #### 첨부파일을 보여주고자 한다면 -->
 						            <tr>
 						               <td>
 						               
-						               <c:if test="${ board.b_fname != null }" >
-						                  <img src='/teamProject/resources/upload/${ board.b_realfname }'>
+						               <c:if test="${ photo.PicFname != null }" >
+						                  <img src='/teamProject/resources/upload/${ photo.PicId }'>
 						               </c:if>
 						                              
 						               </td>
@@ -336,8 +336,8 @@
 						            <tr>
 						               <td colspan="2" align="center">
 						               
-						               <c:if test="${ board.b_fname != null }" >
-						                  <img src='/teamProject/resources/upload/${ board.b_realfname }'>
+						               <c:if test="${ photo.PicFname != null }" >
+						                  <img src='/teamProject/resources/upload/${ photo.PicId }'>
 						               </c:if>
 						                              
 						               </td>
@@ -353,7 +353,7 @@
                                         	<a href="photoInsertBoard.do" class="boardBtn">사진등록</a>
                                     </div>
                                     <div class="btnBox">
-                                        	<a href="photoDeleteBoard.do?b_id=${board.b_id}" class="boardBtn">사진삭제</a>
+                                        	<a href="photoDeleteBoard.do?b_id=${photo.PicNum}" class="boardBtn">사진삭제</a>
                                     </div>
                                     <div class="btnBox">
                                         	<a href="photoGetBoardList.do" class="boardBtn">사진목록</a>

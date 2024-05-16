@@ -64,6 +64,7 @@ public class UserController {
 			return "authentication-pages/sign-in"; //닉네임이 틀렸습니다 떠야함
 		}else {
 			session.setAttribute("logEmail", result.getUserEmail());
+			session.setAttribute("logUser", result.getUserName());
 			return "user-pages/loginConfirm";
 		}
 	}

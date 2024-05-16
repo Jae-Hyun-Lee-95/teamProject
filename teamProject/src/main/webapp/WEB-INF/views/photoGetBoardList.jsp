@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <!DOCTYPE html><!--  This site was created in Webflow. https://www.webflow.com  --><!--  Last Published: Tue May 07 2024 06:04:56 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="6634a93befaafa41dc30c14e" data-wf-site="6634a93aefaafa41dc30c070">
 <head>
@@ -303,33 +306,34 @@
 										<tr>
 											<th>번호</th>
 											<th>제목</th>
-											<th>작성자</th>
+											<th>이메일</th>
 											<th>등록일</th>
 											<th>조회수</th>
 				
 											<th>파일</th>
 										</tr>
 									</thead>
-			<c:forEach items="${boardList }" var="board">
+			<c:forEach items="${photoList }" var="photo">
 				<!-- 프라퍼티이름 변경 -->
 				<tr>
-					<td>${board.b_id }</td>
-					<td><a href="getBoard.do?b_id=${board.b_id }">
-							${board.b_title }</a></td>
-					<td>${board.b_name }</td>
-					<td>${board.b_date }</td>
-					<td>${board.b_count }</td>
+				
+				 <td>${photo.picNum }</td>
+					<td><a href="photoGetBoard.do?PicNum=${photo.picNum }">
+							${photo.picTitle }</a></td>
+					<td>${photo.picEmail }</td>
+					<td>${photo.picDate }</td>
+					<td>${photo.picCount }</td>
 					<!-- 추가 -->
 					<td>
 						  <c:choose>
-							<c:when test="${ board.b_fsize==0 }">첨부파일없음</c:when>
+							<c:when test="${ photo.picFsize==0 }">첨부파일없음</c:when>
 							<c:otherwise>
-								<a href='resources/upload/${ board.b_realfname }'>
-								<img src="/teamProject/resources/images/disk.gif">${ board.b_fname }
+								<a href='resources/upload/${photo.picEmail}/${photo.picId}'>
+								<img src="/teamProject/resources/images/disk.gif">${photo.picFname }
 								</a>
 							</c:otherwise>
 						</c:choose>
-					</td>
+					</td> 
 					
 				</tr>
 			</c:forEach>

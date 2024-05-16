@@ -305,24 +305,24 @@
 				<!-- 2. 각 항목에  name 맞추기 -->
 				<tr>
 					<td>제목</td>
-					<td><input type="text" name='b_title'/></td>
+					<td><input type="text" name='PicTitle'/></td>
 				</tr>
 				<tr>
 					<td>작성자</td>
-					<td><input type="text" name='b_name' size="10" /></td>
+					<td><input type="text" name='PicName' size="10"  readonly value="${sessionScope.logUser}"/></td>
 				</tr>
 				<tr>
 					<td>내용</td>
-					<td><textarea cols="40" name='b_content' rows="10"></textarea></td>
+					<td><textarea cols="40" name='PicContent' rows="10"></textarea></td>
 				</tr>
 				<!-- 추가항목 시작 -->
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" name='b_email'/></td>
+					<td><input type="text" name=PicEmail readonly value ="${sessionScope.logEmail}"/></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" name='b_pwd' /></td>
+					<td><input type="text" name='PicPassword' /></td>
 				</tr>
 				<tr>
 					<td>파일추가</td><td align="left">
@@ -334,9 +334,8 @@
 				</tr>
 			</table>
 		</form>
-	
-    			<div class="btnBox">
-    				<a href="photoGetBoardList.do" class="boardBtn">글 목록 가기</a>
+    		<div class="btnBox">
+    			<a href="photoGetBoardList.do" class="boardBtn">글 목록 가기</a>
    			</div>
    		</div>
   	 </div>

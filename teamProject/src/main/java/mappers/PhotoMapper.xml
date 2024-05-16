@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PhotoDAO">
+ 
+ <insert id="insertPhoto" parameterType="PhotoVO">
+	INSERT INTO Picture
+	(
+		PicTitle
+		, PicContent
+		, PicPassword
+		, PicDate
+		, PicCount
+		, PicFname
+		, PicFsize
+		, PicId
+		, PicEmail
+	) VALUES (
+		#{PicTitle}
+		, #{PicContent}
+		, #{PicPassword}
+		, now()
+		, 0
+		, #{PicFname}
+		, #{PicFsize}
+		, #{PicId}
+		, #{PicEmail}
+	)
+</insert>
+
+<select id="getPhotoList" resultType="PhotoVO">
+		<!-- 아래 CDATA를 쓰지 않으면 추후에 비교하면서 쓰는 >/< 에서 꺽쇠로 인식해서 오류가 발생한다 -->
+		<![CDATA[
+		SELECT * FROM picture 
+		ORDER BY PicNum DESC
+		]]>
+</select>
+
+<select id='getShowPic' parameterType="PhotoVO" resultType="PhotoVO">
+		SELECT * 
+		FROM picture
+		<!-- WHERE b_id = #{b_id} -->
+</select>
+
+
+	
+
+</mapper>

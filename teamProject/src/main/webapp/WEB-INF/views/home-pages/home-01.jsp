@@ -216,70 +216,25 @@
                   </div>
                   <div class="banner-image-tabs-contant w-tab-content">
                     <div data-w-tab="Tab 1" class="banner-image-tab-pane w-tab-pane w--tab-active">
-                      <div class="v1-banner-image-grid">
-                        <div id="w-node-_9719f9d1-62d6-c840-1630-d346f158e9ec-dc30c16c" class="banner-image-flex-wrap">
-                          <div class="banner-image-single-wrapper">
-                            <div class="banner-image-wrapper">
-                              <table border='2'>
-                              	<tr>
-                              		<c:forEach items="${imageList}" var="image" varStatus="loop">
-                              			<c:if test="${loop.index % 3 == 0}">
-                              				</tr><tr>
-                              			</c:if>
-                              			<td class="image-cell">
-                              				<c:choose>
-                              					<c:when test="${image.fsize==0}">
-                        							첨부파일없음
-                    							</c:when>
-                    							<c:otherwise>
-                            							<img src="/teamProject/resources/upload/sample1.png" alt="이미지">
-                        							</a>
-                    							</c:otherwise>
-                              				</c:choose>
-                               		</c:forEach>
-                              	</tr>
-                              </table>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="w-node-bbb26abf-ea93-67bb-1cab-c286b4597440-dc30c16c" class="banner-image-flex-wrap">
-                          <div class="banner-image-single-wrapper">
-                            <div class="banner-image-wrapper">
-                              <div class="banner-image-wrap"><img sizes="(max-width: 479px) 94vw, (max-width: 767px) 96vw, (max-width: 991px) 64vw, (max-width: 1919px) 38vw, 675.8177490234375px" srcset="/teamProject/resources/images/products-img-5-p-500.png 500w, /teamProject/resources/images/v1-banner-img-5.png 676w" alt="" src="/teamProject/resources/images/v1-banner-img-5.png" loading="lazy" class="banner-img"></div>
-                              <div class="banner-image-overlay-wrap">
-                                <div class="banner-image-author-contant">
-                                  <div class="banner-aothor-img-name-wrap">
-                                    <div class="banner-author-img-wrap"><img loading="lazy" src="/teamProject/resources/images/v2-most-download-author-img-4.svg" alt="" class="banner-author-img"></div>
-                                    <div class="banner-author-name-wrap">
-                                      <h2 class="banner-author-name">Leo Tolstoy</h2>
-                                      <div class="banner-author-date">23/10/2024</div>
-                                    </div>
-                                  </div>
-                                  <div class="circle-button-wrap">
-                                    <a href="/teamProject/product.do" class="circle-button w-inline-block"><img loading="lazy" src="/teamProject/resources/images/circle-button-icon.svg" alt="" class="circle-button-icon"></a>
-                                  </div>
-                                  <div class="banner-image-price-wrap">
-                                    <div class="banner-image-price">$1.00</div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="w-layout-grid banner-image-2-columns-grid">
-                            <div id="w-node-_1e7e5f31-4fa4-e8bc-2f67-223f6120c0f7-dc30c16c" class="banner-image-flex-wrap">
-                            </div>
-                            <div id="w-node-_87207256-5e99-0b9e-f30a-fb4dca0c4aed-dc30c16c" class="banner-image-flex-wrap">
-                              <div class="banner-image-single-wrapper"> 
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="w-node-_320977e1-3ad9-f7c0-81e4-e4c5c7616aed-dc30c16c" class="banner-image-flex-wrap">
-                          <div id="w-node-_320977e1-3ad9-f7c0-81e4-e4c5c7616aee-dc30c16c" class="banner-image-single-wrapper">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+					   <div class="v1-banner-image-grid">
+					       <div id="w-node-_9719f9d1-62d6-c840-1630-d346f158e9ec-dc30c16c" class="banner-image-flex-wrap">
+					           <!-- 여기에 이미지를 동적으로 출력하는 코드를 추가 -->
+					           <c:forEach items="${photoList}" var="image" varStatus="loop">
+					               <c:if test="${loop.index % 2 == 0}">
+					                   </tr><tr>
+					               </c:if>
+					               <td class="banner-image-single-wrapper">
+					                   <div class="banner-image-wrapper">
+					                       <div class="banner-image-wrap">
+					                           <img src="/teamProject/resources/upload/${image.picEmail}/${image.picId}" alt="이미지" class="banner-img">
+					                       </div>
+					                       <!-- 이미지와 관련된 추가 정보를 출력할 수 있음 -->
+					                   </div>
+					               </td>
+					           </c:forEach>
+					        </div>
+					    </div>
+					</div>
                     <div data-w-tab="Tab 2" class="banner-image-tab-pane w-tab-pane w--tab-active">
                       <div class="v1-banner-image-grid">
                         <div id="w-node-_9719f9d1-62d6-c840-1630-d346f158e9ec-dc30c16c" class="banner-image-flex-wrap">
@@ -789,7 +744,7 @@
       <div class="container">
         <div class="footer-top">
           <div data-w-id="35101c2c-ff7c-f7b3-9aa9-ac2f2b9443a0" class="footer-details-wrap">
-            <a href="/teamProject/index.do" class="footer-logo-wrap w-inline-block"><img src="/teamProject/resources/images/footer-logo.svg" loading="lazy" alt="" class="footer-logo"></a>
+            <a href="/teamProject/home-pages/home-01.do" class="footer-logo-wrap w-inline-block"><img src="/teamProject/resources/images/footer-logo.svg" loading="lazy" alt="" class="footer-logo"></a>
             <p class="footer-details">Zastock is a place where you could buy some of the photos I have taken over the years.</p>
             <div class="footer-social-media-wrap">
               <a href="https://www.facebook.com/" target="_blank" class="footer-social-link w-inline-block">

@@ -20,18 +20,18 @@
 
 <table border='2'>
     <tr>
-        <c:forEach items="${imageList}" var="image" varStatus="loop">
+        <c:forEach items="${photoList}" var="image" varStatus="loop">
             <c:if test="${loop.index % 3 == 0}">   
             </tr><tr>
             </c:if>
             <td class="image-cell">
                 <c:choose>
-                    <c:when test="${image.b_fsize==0}">
+                    <c:when test="${image.picFsize==0}">
                         첨부파일없음
                     </c:when>
                     <c:otherwise>
-                        <a href='getBoard.do?b_id=${image.b_id}'>
-                            <img src="resources/upload/${image.b_realfname}" alt="이미지">
+                        <a href='photoGetBoard.do?PicNum=${image.picNum}'>
+                            <img src="/teamProject/resources/upload/${image.picId}" alt="이미지">
                         </a>
                     </c:otherwise>
                 </c:choose>
